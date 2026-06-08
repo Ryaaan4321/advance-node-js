@@ -1,0 +1,17 @@
+Readable Stream
+Writable Stream
+Duplex Stream
+Transform Stream
+
+Events:
+data
+end
+error
+close
+
+Methods:
+pipe()
+read()
+pause()
+resume()
+destroy()
