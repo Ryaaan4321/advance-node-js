@@ -1,22 +1,3 @@
-Readable Stream
-Writable Stream
-Duplex Stream
-Transform Stream
-
-Events:
-data
-end
-error
-close
-
-Methods:
-pipe()
-read()
-pause()
-resume()
-destroy()
-
-
 import { Readable } from "node:stream";
 import fs from 'fs'
 const readable=new Readable({read(){}});
@@ -71,11 +52,12 @@ userStream.on('data',(chunk)=>{
 })
 
 async function largeProcessing(){
-    const stream=fs.createReadStream('file.txt',{highWaterMark:64*1024});
+    const stream=fs.createReadStream('file.txt',{highWaterMark:5});
     try{
         console.log("from the largeProcessing function");
         for await (const chunk of stream){
             console.log(chunk.toString());
+            console.log("one chunk got consoled out");
         }
         console.log("we are doneee here");
     }catch(e){
