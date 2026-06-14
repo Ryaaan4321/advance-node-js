@@ -12,6 +12,8 @@ logger.end();
 
 logger.on('finish', () => console.log('Logger done'));
 
+// writtable when we want to process the list of object or the db response that has the big
+// size data to be responsed
 const dbWritter=new Writable({
     objectMode:true,
     write(chunk,encoding,callback){
@@ -23,6 +25,7 @@ const dbWritter=new Writable({
 dbWritter.write({id:1,name:"Alice"});
 dbWritter.write({id:2,name:"Bob"});
 
+// writtable with the error handling
 const writable = new Writable({
   write(chunk, encoding, callback) {
     try {

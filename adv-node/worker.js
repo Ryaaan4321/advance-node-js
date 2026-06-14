@@ -13,8 +13,7 @@
 // });
 
 //  above one was for mutex
-import { workerData, threadId } from "node:worker_threads";
-import Semaphore from "./semaphores.js";
+
 
 const semaphore = new Semaphore(
     workerData.semaphore,
